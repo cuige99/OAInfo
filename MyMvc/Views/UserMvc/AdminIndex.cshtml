@@ -1,0 +1,57 @@
+﻿
+@{
+
+    Layout = null;
+}
+@model MyMvc.Model.AdminInfoModel
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>CRM自动化停车管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <link href="~/AdmianInterTwo/css/style.css?s=491" rel="stylesheet" />
+    <body>
+
+        <div class="login-container">
+            <h1>欢迎进入的自动化停车管理系统</h1>
+            <form action="/UserMvc/AdminIndex" method="post" id="loginForm">
+                <div>
+                    <input type="text" name="Sname" class="Sname" placeholder="用户名" autocomplete="off" />
+                </div>
+                <div>
+                    <input type="password" name="Passwords" class="Passwords" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
+                </div>
+                <button id="submit" type="submit">登 录</button>
+            </form>
+
+            <a href="/UserMvc/AdminAdd">
+                <button type="button" class="register-tis">还有没有账号？</button>
+            </a>
+
+        </div>
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+
+        <!--背景图片自动更换-->
+        <script src="~/AdmianInterTwo/js/supersized.3.2.7.min.js?s=941"></script>
+
+        <script src="~/AdmianInterTwo/js/supersized-init.js?t=9412"></script>
+
+        <!--表单验证-->
+
+        <script src="~/AdmianInterTwo/js/common.js?p=753"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+
+
+    </body>
+</head>
+</html>
+
+
+

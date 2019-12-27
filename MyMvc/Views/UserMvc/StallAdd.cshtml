@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model MyMvc.Models.ParkInfoViewModel
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/AdmianInter/layui/css/layui.css?" rel="stylesheet" />
+<script src="~/AdmianInter/layui/lay/dest/layui.all.js?p"></script>
+<script src="~/AdmianInter/layui/lay/modules/form.js?y"></script>
+
+@using (Html.BeginForm())
+{
+    <body class="childrenBody">
+        <form class="layui-form" style="width:80%;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">区域</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input userName layui-form-danger" name="Place" lay-verify="required" placeholder="请输入区域">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block userSex">
+                        <input type="radio" name="Situation" value="0" title="空闲" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><span>空闲</span></div>
+                        <input type="radio" name="Situation" value="1" title="已预约"><div class="layui-unselect layui-form-radio"><span>已预约</span></div>
+                        <input type="radio" name="Situation" value="2" title="已占"><div class="layui-unselect layui-form-radio"><span>已占</span></div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="layui-inline">
+                <label class="layui-form-label">级别</label>
+                <div class="layui-input-block">
+                    <select name="FID" class="userGrade" lay-filter="userGrade">
+                        <option value="1">豪华</option>
+                        <option value="2">中等</option>
+                        <option value="3">普通</option>
+                        <option value="4">低端</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="submit" class="btn btn-success" value="立即提交" />
+                    <button type="reset" class="btn btn-danger" onclick="location.href='/UserMvc/StallIndex'">取消提交</button>
+                    <button type="reset" class="btn btn-primary">重置数据</button>
+
+                </div>
+            </div>
+        </form>
+
+
+    </body>
+}
+

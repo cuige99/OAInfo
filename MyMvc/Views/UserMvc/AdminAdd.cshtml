@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>CRM自动化停车管理系统</title>
+
+    <link href="~/AdmianInterTwo/css/style.css?y=761" rel="stylesheet" />
+    <body>
+
+        <div class="register-container">
+            <h1>请管理员注册</h1>
+
+            @using (Html.BeginForm("AdminAdd", "UserMvc", FormMethod.Post, new { @id = "registerForm1" }))
+            { }
+            <form action="/UserMvc/AdminAdd" method="post" id="registerForm">
+                <div>
+                    <input type="text" name="Sname" class="Sname" placeholder="您的用户名" autocomplete="off" />
+                </div>
+                <div>
+                    <input type="password" name="Passwords" class="Passwords" placeholder="输入密码" oncontextmenu="return false" onpaste="return false" />
+                </div>
+                <div>
+                    <input type="password" name="confirm_password" class="confirm_password" placeholder="再次输入密码" oncontextmenu="return false" onpaste="return false" />
+                </div>
+                <div>
+                    <input type="text" name="Phone" class="Phone" placeholder="输入手机号码" autocomplete="off" id="number" />
+                </div>
+                @*<div>
+                        <input type="email" name="Email" class="Email" placeholder="输入邮箱地址" oncontextmenu="return false" onpaste="return false" />
+                    </div>*@
+                @*<input type="radio" name="Sex" value="1" />女性
+                    <input type="radio" name="Sex" checked="checked" value="2" />男性
+                    <input type="radio" name="Sex" value="3" />未知*@
+                <button id="submit" type="submit">注 册</button>
+
+
+            </form>
+            <a href="/UserMvc/AdminIndex">
+                <button type="button" class="register-tis">已经有账号？</button>
+            </a>
+
+        </div>
+
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        @*<script src="~/AdmianInterTwo/js/jquery.min.js?f=941"></script>*@
+
+
+        <script src="~/AdmianInterTwo/js/common.js?j=789"></script>
+
+        <!--背景图片自动更换-->
+        <script src="~/AdmianInterTwo/js/supersized.3.2.7.min.js?h=753"></script>
+
+        <script src="~/AdmianInterTwo/js/supersized-initTwo.js?u=946"></script>
+        <!--表单验证-->
+        @*<script src="~/AdmianInterTwo/js/jquery.validate.min.js?=741"></script>*@
+        <script src="~/Scripts/jquery.validate.js"></script>
+
+    </body>
+</head>
+</html>
+<!--
+本代码由js代码收集并编辑整理;
+尊重他人劳动成果;
+转载请保留js代码链接 - www.jsdaima.com
+-->

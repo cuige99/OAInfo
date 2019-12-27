@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "ParkIndex";
+}
+@model List<MyMvc.Models.ParkInfoViewModel>
+
+@*应用Layu.Css*@
+
+<link href="/AdmianInter/layui/css/layui.css" rel="stylesheet" />
+<script src="/AdmianInter/js/index.js?v=974"></script>
+<script src="/AdmianInter/layui/layui.js"></script>
+<script src="~/AdmianInter/page/links/ParkIndex.js"></script>
+
+@using (Html.BeginForm())
+{
+    <blockquote class="layui-elem-quote news_search">
+        <div class="layui-inline">
+            <div class="layui-input-inline">
+                <input type="text" value="" name="name" placeholder="请输入车牌号 :" class="layui-input search_input">
+            </div>
+            <input type="submit" name="name" class="layui-btn" value="查询" />
+        </div>
+        @*<div class="layui-inline">
+                <a class="layui-btn layui-btn-normal newsAdd_btn">添加文章</a>
+            </div>*@
+        @*<div class="layui-inline">
+                <a class="layui-btn recommend" style="background-color:#5FB878">推荐文章</a>
+            </div>
+            <div class="layui-inline">
+                <a class="layui-btn audit_btn">审核文章</a>
+            </div>*@
+        <div class="layui-inline">
+            <a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+        </div>
+
+    </blockquote>
+}
+<div class="layui-form links_list">
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose">
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary">
+                        <i class="layui-icon"></i>
+                    </div>
+                </th>
+                <th>编号    </th>
+                <th>用户    </th>
+                <th>车辆图片</th>
+                <th>车牌</th>
+                <th>级别    </th>
+                <th>区域    </th>
+                <th>驶入时间</th>
+                <th>驶出时间</th>
+                <th>数据操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checked" class="checked1" value="@m.PID" data-id="@m.PID" lay-skin="primary" lay-filter="choose">
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary">
+                            <i class="layui-icon"></i>
+                        </div>
+                    </td>
+                    <td>@m.PID</td>
+                    <td>@m.Uname</td>
+                    <td>@m.PImage</td>
+                    <td>@m.Plate</td>
+                    <td>@m.Tname</td>
+                    <td>@m.Place</td>
+                    <td>@m.CreateDate</td>
+                    <td>@m.ExpireDate</td>
+                    <td>
+                        <a class="layui-btn layui-btn-mini links_edit">
+                            <i class="iconfont icon-edit"></i> 编辑
+                        </a><a class="layui-btn layui-btn-danger layui-btn-mini links_del" data-id="@m.PID">
+                            <i class="layui-icon"></i> 删除
+                        </a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

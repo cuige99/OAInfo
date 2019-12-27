@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model MyMvc.Models.ParkInfoViewModel
+
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/AdmianInter/layui/css/layui.css?" rel="stylesheet" />
+
+<h2>级别增加</h2>
+
+@using (Html.BeginForm())
+{
+    <body class="childrenBody">
+        <form class="layui-form" style="width:80%;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">级别</label>
+                <input type="hidden" name="TID" value="@Model.TID" />
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input userName" value="@Model.Tname" name="Tname" lay-verify="required" placeholder="请输入级别">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">费用</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input userName" value="@Model.Tmaney" name="Tmaney" lay-verify="required" placeholder="请输入费用">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="submit" class="btn btn-success" value="确认编辑" />
+                    <button type="reset" class="btn btn-danger" onclick="location.href='/UserMvc/CarTypesIndex'">取消编辑</button>
+                    <button type="reset" class="btn btn-primary">重置数据</button>
+
+                </div>
+            </div>
+        </form>
+
+
+    </body>
+}

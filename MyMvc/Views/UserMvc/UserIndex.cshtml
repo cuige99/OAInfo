@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "UserIndex";
+}
+
+
+@model List<MyMvc.Models.ParkInfoViewModel>
+
+@*<link href="~/FenTwo/css/layui.css" rel="stylesheet" />
+    <script src="~/FenTwo/js/jquery.min.js"></script>
+    <script src="~/FenTwo/js/layui.js"></script>
+    <script src="~/FenTwo/js/nicePage.js"></script>
+    <script src="~/FenTwo/js/lay/modules/laypage.js"></script>*@
+
+<link href="~/Fen/css/MyPaging.css" rel="stylesheet" />
+<script src="~/Fen/js/jquery.min.js"></script>
+<script src="~/Fen/js/MyPaging.js?v=789"></script>
+<script src="~/Fen/js/script.js"></script>
+
+@*应用Layu.Css*@
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="/AdmianInter/js/index.js?r"></script>
+<link href="/AdmianInter/layui/css/layui.css" rel="stylesheet" />
+<script src="~/AdmianInter/js/index.js"></script>
+<script src="~/AdmianInter/page/links/UserIndex.js?"></script>
+
+
+
+@using (Html.BeginForm())
+{
+    <blockquote class="layui-elem-quote news_search">
+        <div class="layui-inline">
+            <div class="layui-input-inline">
+                <input type="text" value="" name="name" placeholder="用户姓名:" class="layui-input search_input">
+            </div>
+            <div class="layui-input-inline">
+                <input type="text" value="" name="Uplate" placeholder="车牌号:" class="layui-input search_input">
+            </div>
+            <input type="submit" name="name" class="layui-btn" value="查询" />
+        </div>
+
+    </blockquote>
+}
+<div class="layui-form links_list">
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>编号      </th>
+                <th>头像      </th>
+                <th>姓名      </th>
+                <th>身份证件  </th>
+                <th>电话      </th>
+                <th>地址      </th>
+                <th>车牌      </th>
+                <th>会员状态   </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.UIDa</td>
+                    <td><img src="@m.UImage" alt="加载中....." />  </td>
+                    <td>@m.Uname</td>
+                    <td>@m.Uidentity</td>
+                    <td>@m.UPhone</td>
+                    <td>@m.USite</td>
+                    <td>@m.Uplate</td>
+                    <td>
+                        @if (m.FId == 0)
+                        {
+                            @Html.ActionLink("高级会员", "ZFID")
+                        }
+                        @if (m.FId == 1)
+                        {
+                            @Html.ActionLink("普通用户", "PFID")
+                        }
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="_my-paging-box">
+    <div class="total pg-item">共<span>@ViewBag.count</span>条</div> @*总页数*@
+    <div class="sizes pg-item">共<span>@ViewBag.last</span>页</div>  @*页数*@
+    <div class="link-btn prev pg-item " data-current="prev"><a href="/UserMvc/UserIndex?PageIndex=@ViewBag.PageBack" onclick="@(ViewBag.PageBack >= 1 ? "return true" : "return false") ;">上一页</a></div>   @*上一页a标签路径*@
+    <ul class="link-list pg-item">
+        <li class="link-btn" onclick="location.href='/UserMvc/UserIndex?PageIndex=1'" data-current="1">1</li>@*点击跳转*@
+        <li class="link-btn" onclick="location.href='/UserMvc/UserIndex?PageIndex=2'" data-current="2">2</li>@*点击跳转*@
+    </ul>
+    <div class="link-btn next pg-item disabled" data-current="next"><a href="/UserMvc/UserIndex?PageIndex=@ViewBag.PageNext" onclick="@(ViewBag.PageNext > ViewBag.last ? "return false" : "return true") ;">下一页</a></div>  @*下一页a标签路径*@
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

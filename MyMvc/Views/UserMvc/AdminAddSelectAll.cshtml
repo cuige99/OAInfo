@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<MyMvc.Model.AdminInfoModel>
+<link href="~/Fen/css/MyPaging.css" rel="stylesheet" />
+<script src="~/Fen/js/jquery.min.js"></script>
+<script src="~/Fen/js/MyPaging.js"></script>
+<script src="~/Fen/js/script.js"></script>
+
+@*应用Layu.Css*@
+
+<script src="/AdmianInter/js/index.js?r"></script>
+<link href="/AdmianInter/layui/css/layui.css" rel="stylesheet" />
+<script src="~/AdmianInter/js/index.js"></script>
+<script src="~/AdmianInter/page/links/UserIndex.js?"></script>
+
+
+
+@using (Html.BeginForm())
+{
+    <blockquote class="layui-elem-quote news_search">
+        <div class="layui-inline">
+            <div class="layui-input-inline">
+                <input type="text" value="" name="name" placeholder="管理员:" class="layui-input search_input">
+            </div>
+
+            <input type="submit" name="name" class="layui-btn" value="查询" />
+        </div>
+
+    </blockquote>
+}
+<div class="layui-form links_list">
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>编号      </th>
+                <th>管理员      </th>
+                <th>电话  </th>
+              </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Sida</td>
+                    <td>@m.Sname</td>
+                    <td>@m.Phone</td>
+                    @*<td>
+                        @if (m.Sex == 1)
+                        {
+                            @Html.ActionLink("女性", "ZFID")
+                        }
+                        @if (m.Sex == 2)
+                        {
+                            @Html.ActionLink("男性", "PFID")
+                        }
+                        @if (m.Sex == 3)
+                        {
+                            @Html.ActionLink("未知", "PFID")
+                        }
+                    </td>
+                    <td>@m.Email</td>*@
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="_my-paging-box">
+    <div class="total pg-item">共<span>@ViewBag.countTwo</span>条</div> @*总页数*@
+    <div class="sizes pg-item">共<span>@ViewBag.lastTwo</span>页</div>  @*页数*@
+    <div class="link-btn prev pg-item disabled" data-current="prev"><a href="/UserMvc/AdminAddSelectAll?PageIndex=@ViewBag.PageBackTwo" onclick="@(ViewBag.PageBackTwo >= 1 ? "return true" : "return false") ;">上一页</a></div>   @*上一页a标签路径*@
+    <ul class="link-list pg-item">
+        <li class="link-btn" onclick="location.href='/UserMvc/AdminAddSelectAll?PageIndex=1'" data-current="1">1</li>@*点击跳转*@
+        <li class="link-btn" onclick="location.href='/UserMvc/AdminAddSelectAll?PageIndex=2'" data-current="2">2</li>@*点击跳转*@
+    </ul><div class="link-btn next pg-item" data-current="next"><a href="/UserMvc/AdminAddSelectAll?PageIndex=@ViewBag.PageNextTwo" onclick="@(ViewBag.PageNextTwo > ViewBag.lastTwo ? "return false" : "return true") ;">下一页</a></div>  @*下一页a标签路径*@
+</div>

@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model MyMvc.Models.ParkInfoViewModel
+
+
+<link href="~/AdmianInter/layui/css/layui.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    <body class="childrenBody">
+        <form class="layui-form" style="width:80%;">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">区域</label>
+                <input type="hidden" name="WID" value="@Model.WID" />
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input userName" value="@Model.Place" name="Place" lay-verify="required" placeholder="请输入区域">
+                </div>
+            </div>
+            @*public int WID { get; set; }
+                public string Place { get; set; }
+                public int Situation { get; set; }
+                public string Content { get; set; }*@
+            @*<div class="layui-form-item">
+                    <label class="layui-form-label">邮箱</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input userEmail" lay-verify="email" placeholder="请输入邮箱">
+                    </div>
+                </div>*@
+            <div>
+
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block userSex">
+                        <input type="radio" name="Situation" value="0" @(Model.Situation == 0 ? "checked" : "") title="空闲"><div class="layui-unselect layui-form-radio layui-form-radioed"><span>空闲</span></div>
+                        <input type="radio" name="Situation" value="1" @(Model.Situation == 1 ? "checked" : "") title="已预约"><div class="layui-unselect layui-form-radio"><span>已预约</span></div>
+                        <input type="radio" name="Situation" value="2" @(Model.Situation == 2 ? "checked" : "") title="已占"><div class="layui-unselect layui-form-radio"><span>已占</span></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">级别</label>
+                <div class="layui-input-block">
+                    <select name="FID" class="userGrade" lay-filter="userGrade">
+                        <option value="">==请选择==</option>
+                        <option value="1" @(Model.FID == 1 ? "selected" : "")>豪华</option>
+                        <option value="2" @(Model.FID == 2 ? "selected" : "")>中等</option>
+                        <option value="3" @(Model.FID == 3 ? "selected" : "")>普通</option>
+                        <option value="4" @(Model.FID == 4 ? "selected" : "")>低端</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="submit" class="btn btn-success" value="确认编辑" />
+                    <button type="reset" class="btn btn-danger" onclick="location.href='/UserMvc/StallIndex'">取消编辑</button>
+                </div>
+            </div>
+
+        </form>
+        <script src="/AdmianInter/layui/layui.js"></script>
+
+        <script src="~/AdmianInter/page/user/addUser.js"></script>
+
+
+    </body>
+}
